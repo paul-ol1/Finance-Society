@@ -3,6 +3,9 @@ from pandas.io import *
 import sqlite3
 import json
 ticker_object = yf.Ticker('AAPL')
+tick = yf.Ticker('TSLA')
+print(ticker_object.income_stmt)
+print(tick.income_stmt)
 years_ts = list(ticker_object.income_stmt)
 years = []
 for i in years_ts:
