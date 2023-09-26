@@ -13,6 +13,7 @@ fs.readFile("S&P500.json","utf8", (err, data) => {
       
     }
     SandP500Json= JSON.parse(data);
+    
 }
 );
 
