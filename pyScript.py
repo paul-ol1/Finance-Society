@@ -2,51 +2,52 @@ import yfinance as yf
 from pandas.io import *
 import sqlite3
 import json
-ticker_object = yf.Ticker('AAPL')
-tick = yf.Ticker('TSLA')
-print(ticker_object.income_stmt)
-print(tick.income_stmt)
-years_ts = list(ticker_object.income_stmt)
-years = []
-for i in years_ts:
-    i = i.year
-    years.append(i)
-
-
-bs =ticker_object.balance_sheet.to_records()
-balancesheet = []
-for x, year in enumerate(years):
-    newyear= {"year": year}
-    for b in bs :
-        newyear.update({""+b[0]:b[x+1]})
-    balancesheet.append(newyear)
-
-ics =ticker_object.income_stmt.to_records()
-income_statement = []
-for x, year in enumerate(years):
-    newyear= {"year": year}
-    for i in ics :
-        newyear.update({""+i[0]:i[x+1]})
-    income_statement.append(newyear)
+#print(ticker_object.balance_sheet.to_records)
 
 try:
     sqliteConnection = sqlite3.connect('database.db')
     cursor = sqliteConnection.cursor()
     print("Database created and Successfully Connected to SQLite")
-
-    sqlite_select_Query = "select sqlite_version();"
-    cursor.execute(sqlite_select_Query)
-    record = cursor.fetchall()
-    print("SQLite Database Version is: ", record)
     
 
 except sqlite3.Error as error:
     print("Error while connecting to sqlite", error)
 
+json_opener= open("S&P500.json")
 
-
-
-
+companies_list = json.load(json_opener);
+for i in companies_list:
+    ticker_object = yf.Ticker(f'{""+i["Symbol"]}')
+    '''years_ts = list(ticker_object.balance_sheet)
+    years = []
+    for i in years_ts:
+        i = i.year
+        years.append(i)
+    years = json.dumps(years)
+    newBS = ticker_object.balance_sheet.to_json();
+    data_to_insert = ( ""+i['Symbol'], newBS,years)
+    query = "INSERT INTO Balance_sheets(Symbol,Data,Years) VALUES(?,?,?)"
+    cursor.execute(query, data_to_insert)'''
+    '''
+    years_ts = list(ticker_object.income_stmt)
+    years = []
+    for x in years_ts:
+        years.append(x.year)
+    years = json.dumps(years)
+    newIS = ticker_object.income_stmt.to_json();
+    data_to_insert = ( ""+i['Symbol'], newIS,years)
+    query = "INSERT INTO Income_statements(Symbol,Data,Years) VALUES(?,?,?)"
+    cursor.execute(query, data_to_insert)
+        
+    years_ts = list(ticker_object.cash_flow)
+    years = []
+    for x in years_ts:
+        years.append(x.year)
+    years = json.dumps(years)
+    newSCF = ticker_object.cash_flow.to_json();
+    data_to_insert = ( ""+i['Symbol'], newSCF,years)
+    query = "INSERT INTO CashFlows(Symbol,Data,Years) VALUES(?,?,?)"
+    cursor.execute(query, data_to_insert)'''
 ''' used to add all company list to database
 
 json_opener= open("S&P500.json")
