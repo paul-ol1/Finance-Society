@@ -25,8 +25,6 @@ let server = app.listen(port, function () {
     console.log("to end press Ctrl + C");
 });
 
-
-
 /* This code sends a file (containing the HTML for a web page) */
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "homepage.html"));
