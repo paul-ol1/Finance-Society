@@ -1,47 +1,209 @@
-body{
-    margin: 0%;
-    padding: 0%;
-    height: 100vh;
-    background: linear-gradient(to right, #07203e 75%,#4470a4 25%) left ;
-    background-size: 200% 100%;
-}
-#start-screen{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-#upper-start-screen{
-    width: 100%;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    
-}
-#lower-start-screen{
-    width: 100%;
-    height: 70%;
+#homepage {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(to left, #07203e 50%, #ffffff 50%) right;
+  background-size: 200% 100%;
 }
 
-#auplogo{
-    width: 50%;
-    height: auto;
+#capm-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-#fslogo{
-    width:15%;
-    height: auto;
+#start-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-::placeholder {
-   text-align: center; 
-   color: White;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   font-size: medium;
+
+#upper-start-screen {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
 }
-#complist:hover{
-    cursor: pointer;
+
+#lower-start-screen {
+  width: 100%;
+  height: 70%;
 }
-#Companies{
-    padding: 10px;
-  border: 1px solid #ccc;
+
+#auplogo {
+  width: 50%;
+  min-width: 300px;
+  height: auto;
+}
+
+#fslogo {
+  width: 13%;
+  min-width: 70px;
+  height: auto;
+}
+
+#main {
+  color: black;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#header {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  color: #536878;
+  border-bottom: 1px solid #536878;
+}
+
+.box {
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  width: 30%;
+  height: 30%;
+  min-height: 200px;
+  min-width: 200px;
+  max-width: 300px;
+  max-height: 300px;
+  background-color: rgba(112, 128, 144, 0.1);
+  color: black;
+  opacity: 0.5;
+  border-radius: 3px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.inner-box-upper {
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-box-lower {
+  display: block;
+  height: 80%;
+  width: 100%;
+  text-align: center;
+  font-size: small;
+  overflow: hidden;
+}
+
+.box:hover {
+  background-color: rgba(112, 128, 144, 0.5);
+  opacity: 1;
+}
+.fa-sharp {
+  margin-left: 10px;
+}
+.fa-sharp:hover {
+  cursor: pointer;
+}
+.calcbutt {
+  width: 30%;
+  min-height: 40px;
+  border: none;
+  border-radius: 8px;
+}
+.calcbutt:hover {
+  cursor: pointer;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+#log-in,
+#sign-up-page {
+  background-color: rgba(112, 128, 144, 0.1);
+  padding: 20px;
   border-radius: 5px;
+  min-width: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+#boxes p {
+  margin: 5px 0;
+}
+
+#boxes label {
+  display: block;
+  margin-top: 5px;
+}
+
+#log-in input[type="text"],
+#log-in input[type="email"],
+#log-in input[type="password"],
+#sign-up-page input[type="text"],
+#sign-up-page input[type="email"],
+#sign-up-page input[type="password"] {
+  width: 100%;
+  height: 30px;
+  border: none;
+  background-color: rgba(112, 128, 144, 0.1);
+  border-radius: 7px;
+  font-size: smaller;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#log-in input[type="text"],
+#log-in input[type="email"],
+#log-in input[type="password"],
+#sign-up-page input[type="text"],
+#sign-up-page input[type="email"],
+#sign-up-page input[type="password"]:focus {
+  outline: none;
+}
+
+#button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+#loginbutt,
+#signupbutt {
+  margin-top: 25px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to left, #708090 50%, #fff 50%) right;
+  background-size: 200% 100%;
+}
+#loginbutt:hover,
+#signupbutt:hover {
+  background-position: left;
+  transition: all 2s linear;
+  cursor: pointer;
+  color: rgba(112, 128, 144);
+}
+
+@media screen and (max-width: 620px) {
+  .box {
+    width: 80%;
+  }
+  #container {
+    flex-direction: column;
+  }
 }
