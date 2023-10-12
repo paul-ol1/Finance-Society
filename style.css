@@ -1,10 +1,14 @@
 #homepage {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   height: 100vh;
   background: linear-gradient(to left, #07203e 50%, #ffffff 50%) right;
   background-size: 200% 100%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+
 }
 
 #capm-page {
@@ -74,7 +78,7 @@
   background-color: rgba(112, 128, 144, 0.1);
   color: black;
   opacity: 0.5;
-  border-radius: 3px;
+  border-radius: 7px;
   text-align: center;
   overflow: hidden;
 }

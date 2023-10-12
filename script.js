@@ -69,12 +69,10 @@ function signup() {
         }
       })
       .then((data) => {
-        // Handle the successful response here
-        console.log(data.message);
-        // You can also redirect the user or update the UI here
+        window.location.replace('/dashboard');
       })
       .catch((error) => {
-        alert("Account already exist"); // Display an alert with the error message
+        alert("Account already exist");
       });
   }}
 
@@ -108,9 +106,7 @@ function loginfunc() {
       }
     })
     .then((data) => {
-      // Handle the successful response here
-      console.log(data.message);
-      // You can also redirect the user or update the UI here
+      window.location.replace("/dashboard");
     })
     .catch((error) => {
       alert("Error: " + error.message); // Display an alert with the error message

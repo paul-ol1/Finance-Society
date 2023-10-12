@@ -36,6 +36,10 @@ fs.readFile("S&P500.json","utf8", (err, data) => {
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "homepage.html"));
 });
+app.get("/dashboard", function (req, res) {
+  res.sendFile(path.join(__dirname, "dashboard.html"));
+});
+
 
 app.get("/companylist", function (req, res) {
 
@@ -57,6 +61,7 @@ app.post("/log-in", async function (req, res) {
       if (user) {
         // User found, send a success response
         res.status(200).json({ message: "Logged in successfully" });
+        
       } else {
         // User not found, send an error response
         res.status(401).json({ error: "Invalid email or password" });
