@@ -70,9 +70,10 @@ function signup() {
       })
       .then((data) => {
         window.location.replace('/dashboard');
+        
       })
       .catch((error) => {
-        alert("Account already exist");
+        alert("Error: " + error.message); // Display an alert with the error message
       });
   }}
 
